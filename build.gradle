@@ -1,7 +1,17 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.flywaydb:flyway-mysql:8.3.0'
+    }
+}
+
 plugins {
     id 'org.springframework.boot' version '2.6.4'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id 'org.flywaydb.flyway' version '8.5.2'
 }
 
 group = 'com.fakegmbh'
@@ -24,4 +34,11 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+flyway {
+    url = 'jdbc:mysql://localhost:3306/leasing_db'
+    driver = 'com.mysql.jdbc.Driver'
+    user = 'user'
+    password = 'password'
 }
