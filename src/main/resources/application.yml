@@ -1,0 +1,9 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/leasing_db
+    username: user
+    password: password
+    driver-class-name: com.mysql.jdbc.Driver
