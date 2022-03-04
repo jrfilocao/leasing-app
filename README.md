@@ -2,4 +2,4 @@
 
 
 ### Commit Message
-In this project we follow this commit message guideline: https://github.com/jrfilocao/leasing-app.git
+In this project we follow this commit message guideline: https://cbea.ms/git-commit/
