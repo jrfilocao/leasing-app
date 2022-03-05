@@ -27,8 +27,9 @@ public class CustomerService {
     public CustomerDto updateCustomer(final Long customerId, final CustomerDto customerToBeUpdated) {
         final CustomerEntity customerEntity = customerRepository.findById(customerId)
                                                                 .orElseThrow(() -> new CustomerNotFoundException(customerId));
-        customerToBeUpdated.setCustomerId(customerId);
-        final CustomerEntity updatedCustomerEntity = customerRepository.save(customerEntity);
+        customerToBeUpdated.setCustomerId(customerEntity.getCustomerId());
+        final CustomerEntity customerEntityToBeUpdated = customerMapper.mapTo(customerToBeUpdated);
+        final CustomerEntity updatedCustomerEntity = customerRepository.save(customerEntityToBeUpdated);
         return customerMapper.mapTo(updatedCustomerEntity);
     }
 

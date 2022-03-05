@@ -96,6 +96,7 @@ public class CustomerServiceTest {
     public void testUpdateCustomerValidId() {
         when(customerRepository.findById(CUSTOMER_ID)).thenReturn(Optional.of(customerEntity));
         when(customerRepository.save(customerEntity)).thenReturn(customerEntity);
+        when(customerMapper.mapTo(customerDtoWithId)).thenReturn(customerEntity);
         when(customerMapper.mapTo(customerEntity)).thenReturn(customerDtoWithId);
 
         assertThat(customerService.updateCustomer(CUSTOMER_ID, customerDtoWithoutId)).isEqualTo(customerDtoWithId);
