@@ -90,7 +90,7 @@ public class CustomerControllerTest {
                         .content(asJsonString(customer))
                         .contentType(MediaType.APPLICATION_JSON))
                     .andDo(print())
-                    .andExpect(status().isOk())
+                    .andExpect(status().isCreated())
                     .andExpect(content().json(asJsonString(customer)));
     }
 

@@ -63,8 +63,8 @@ public class CustomerServiceTest {
                                        .firstName(FIRST_NAME)
                                        .lastName(LAST_NAME)
                                        .birthdate(birthdate)
-                                       .lastModified(Timestamp.from(Instant.now()))
-                                       .dateCreated(Timestamp.from(Instant.now()))
+                                       .updatedAt(Timestamp.from(Instant.now()))
+                                       .createdAt(Timestamp.from(Instant.now()))
                                        .build();
     }
 
