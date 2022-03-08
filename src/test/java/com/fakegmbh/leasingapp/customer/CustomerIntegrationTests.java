@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Integration tests starting a Spring application context and the server.
- * Kind of sanity check or smoke tests confirming that the most crucial functions work.
+ * Kind of sanity check or smoke tests confirming that the most crucial functions of the domain work.
  *
  * <p>We are not using testcontainers here. So, the mysql container should be running.
  *
@@ -31,7 +31,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @SpringBootTest(classes = LeasingAppApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class LeasingAppIntegrationTests {
+public class CustomerIntegrationTests {
 
     private static final String CUSTOMERS_ENDPOINT = "/api/customers";
     private static final long CUSTOMER_ID = 1L;
