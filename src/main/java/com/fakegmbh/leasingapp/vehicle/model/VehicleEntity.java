@@ -24,6 +24,7 @@ import java.sql.Timestamp;
 public class VehicleEntity {
 
     protected static final String VEHICLE_TYPE_TABLE = "vehicle";
+    private static final String VEHICLE_TYPE_ID = "vehicle_type_id";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +32,7 @@ public class VehicleEntity {
 
     @NotNull
     @ManyToOne
+    @JoinColumn(name= VEHICLE_TYPE_ID)
     private VehicleTypeEntity vehicleType;
 
     @Min(1500)

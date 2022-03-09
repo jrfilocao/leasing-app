@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Getter
 public class VehicleTypeNotFoundException extends RuntimeException {
 
-    private final Long vehicleTypeId;
+    private final String brand;
+    private final String model;
 
-    public VehicleTypeNotFoundException(final Long vehicleTypeId) {
+    public VehicleTypeNotFoundException(final String brand, final String model) {
         super();
-        this.vehicleTypeId = vehicleTypeId;
+        this.brand = brand;
+        this.model = model;
     }
 }

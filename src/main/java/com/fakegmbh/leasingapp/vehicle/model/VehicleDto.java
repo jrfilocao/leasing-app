@@ -1,6 +1,7 @@
 package com.fakegmbh.leasingapp.vehicle.model;
 
 import com.fakegmbh.leasingapp.vehicletype.model.VehicleTypeDto;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,5 +31,6 @@ public class VehicleDto {
     private String vin;
 
     @NotNull
+    @JsonFormat(shape=JsonFormat.Shape.NUMBER_INT)
     private BigDecimal price;
 }
