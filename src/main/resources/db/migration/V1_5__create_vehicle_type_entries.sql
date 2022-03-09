@@ -1,0 +1,13 @@
+insert into vehicle_type(brand, model) values ('BMW', 'X1');
+insert into vehicle_type(brand, model) values ('BMW', 'X2');
+insert into vehicle_type(brand, model) values ('BMW', 'X3');
+insert into vehicle_type(brand, model) values ('BMW', 'X4');
+insert into vehicle_type(brand, model) values ('BMW', 'X5');
+insert into vehicle_type(brand, model) values ('Mercedes-Benz', 'GT');
+insert into vehicle_type(brand, model) values ('Mercedes-Benz', 'C63');
+insert into vehicle_type(brand, model) values ('Mercedes-Benz', 'GLC63');
+insert into vehicle_type(brand, model) values ('Mercedes-Benz', 'A140');
+insert into vehicle_type(brand, model) values ('VW', 'Golf');
+insert into vehicle_type(brand, model) values ('VW', 'Jetta');
+insert into vehicle_type(brand, model) values ('VW', 'Lamando');
+insert into vehicle_type(brand, model) values ('VW', 'Passat');
