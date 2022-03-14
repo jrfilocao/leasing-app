@@ -38,6 +38,7 @@ public class VehicleIntegrationTests {
     private static final String VEHICLES_ENDPOINT = "/api/vehicles";
 
     private static final long VEHICLE_ID = 1L;
+    private static final long VEHICLE_TYPE_ID = 1L;
     private static final String BRAND = "BMW";
     private static final String MODEL = "X1";
     private static final String VIN = "12345";
@@ -46,6 +47,7 @@ public class VehicleIntegrationTests {
 
     private static final String HOST = "http://localhost:";
     protected static final String SEPARATOR = "/";
+    private static final BigDecimal TEN = new BigDecimal("10.00");
 
     @LocalServerPort
     private int port;
@@ -72,6 +74,7 @@ public class VehicleIntegrationTests {
     @BeforeEach
     public void setUp() {
         final VehicleTypeDto vehicleTypeDto = VehicleTypeDto.builder()
+                                                            .vehicleTypeId(VEHICLE_TYPE_ID)
                                                             .brand(BRAND)
                                                             .model(MODEL)
                                                             .build();
@@ -79,14 +82,14 @@ public class VehicleIntegrationTests {
         vehicle = VehicleDto.builder()
                             .vehicleId(VEHICLE_ID)
                             .vehicleType(vehicleTypeDto)
-                            .price(BigDecimal.TEN)
+                            .price(TEN)
                             .vin(VIN)
                             .modelYear(MODEL_YEAR)
                             .build();
         vehicleToBeUpdated = VehicleDto.builder()
                                        .vehicleId(VEHICLE_ID)
                                        .vehicleType(vehicleTypeDto)
-                                       .price(BigDecimal.TEN)
+                                       .price(TEN)
                                        .vin(VIN)
                                        .modelYear(NEW_MODEL_YEAR)
                                        .build();
