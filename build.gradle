@@ -23,6 +23,13 @@ repositories {
 }
 
 dependencies {
+    constraints {
+        implementation 'org.modelmapper:modelmapper:3.0.0'
+        compileOnly 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.7.3'
+    }
+}
+
+dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.flywaydb:flyway-core'
@@ -35,12 +42,6 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-dependencies {
-    constraints {
-        implementation 'org.modelmapper:modelmapper:3.0.0'
-        compileOnly 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.7.3'
-    }
-}
 tasks.named('test') {
     useJUnitPlatform()
 }
