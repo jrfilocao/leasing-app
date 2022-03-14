@@ -4,6 +4,7 @@ import com.fakegmbh.leasingapp.vehicle.model.VehicleDto;
 import com.fakegmbh.leasingapp.vehicle.model.VehicleEntity;
 import com.fakegmbh.leasingapp.vehicle.model.VehicleMapper;
 import com.fakegmbh.leasingapp.vehicle.model.exception.VehicleNotFoundException;
+import com.fakegmbh.leasingapp.vehicletype.VehicleTypeRepository;
 import com.fakegmbh.leasingapp.vehicletype.model.VehicleTypeDto;
 import com.fakegmbh.leasingapp.vehicletype.model.VehicleTypeEntity;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,6 +20,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 
 public class VehicleServiceTest {
@@ -32,6 +34,9 @@ public class VehicleServiceTest {
 
     @Mock
     private VehicleRepository vehicleRepository;
+
+    @Mock
+    private VehicleTypeRepository vehicleTypeRepository;
 
     @Mock
     private VehicleMapper vehicleMapper;
@@ -52,6 +57,7 @@ public class VehicleServiceTest {
                                                                .model(MODEL)
                                                                .createdAt(Timestamp.from(Instant.now()))
                                                                .build();
+        when(vehicleTypeRepository.findByBrandAndModel(eq(BRAND), eq(MODEL))).thenReturn(Optional.of(vehicleType));
         vehicle = VehicleEntity.builder()
                                .vehicleId(VEHICLE_ID)
                                .vehicleType(vehicleType)
