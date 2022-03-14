@@ -16,14 +16,14 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = VehicleEntity.VEHICLE_TYPE_TABLE)
+@Table(name = VehicleEntity.VEHICLE_TABLE)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class VehicleEntity {
 
-    protected static final String VEHICLE_TYPE_TABLE = "vehicle";
+    protected static final String VEHICLE_TABLE = "vehicle";
     private static final String VEHICLE_TYPE_ID = "vehicle_type_id";
 
     @Id
