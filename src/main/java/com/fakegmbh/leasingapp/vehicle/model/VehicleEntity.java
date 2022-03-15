@@ -38,7 +38,6 @@ public class VehicleEntity {
     @Min(1500)
     private int modelYear;
 
-    @NotEmpty
     private String vin;
 
     @NotNull
