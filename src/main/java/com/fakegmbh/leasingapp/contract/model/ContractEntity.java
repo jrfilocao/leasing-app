@@ -26,9 +26,11 @@ public class ContractEntity {
     protected static final String CONTRACT_TABLE = "leasing_contract";
     private static final String VEHICLE_ID = "vehicle_id";
     private static final String CUSTOMER_ID = "customer_id";
+    private static final String ID_COLUMN = "leasing_contract_id";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = ID_COLUMN)
     private Long contractId;
 
     @NotEmpty
