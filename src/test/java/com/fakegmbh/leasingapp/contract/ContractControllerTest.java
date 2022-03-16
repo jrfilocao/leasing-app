@@ -42,7 +42,7 @@ public class ContractControllerTest {
     private static final int BIRTH_YEAR = 1985;
     private static final int BIRTHDAY = 30;
     private static final String CONTRACT_NUMBER = "1234567";
-    private static final BigDecimal TWENTY = new BigDecimal("20.00");
+    private static final BigDecimal MONTHLY_RATE = new BigDecimal("20.00");
 
     @Autowired
     private MockMvc mockMvc;
@@ -83,14 +83,14 @@ public class ContractControllerTest {
         contract = ContractDto.builder()
                               .contractId(CONTRACT_ID)
                               .contractNumber(CONTRACT_NUMBER)
-                              .monthlyRate(TWENTY)
+                              .monthlyRate(MONTHLY_RATE)
                               .customer(customerDto)
                               .vehicle(vehicleDto)
                               .build();
 
         contractWithoutId = ContractDto.builder()
                                        .contractNumber(CONTRACT_NUMBER)
-                                       .monthlyRate(TWENTY)
+                                       .monthlyRate(MONTHLY_RATE)
                                        .customer(customerDto)
                                        .vehicle(vehicleDto)
                                        .build();
@@ -98,21 +98,21 @@ public class ContractControllerTest {
         contractWithoutCustomer = ContractDto.builder()
                                              .contractId(CONTRACT_ID)
                                              .contractNumber(CONTRACT_NUMBER)
-                                             .monthlyRate(TWENTY)
+                                             .monthlyRate(MONTHLY_RATE)
                                              .vehicle(vehicleDto)
                                              .build();
 
         contractWithoutVehicle = ContractDto.builder()
                                             .contractId(CONTRACT_ID)
                                             .contractNumber(CONTRACT_NUMBER)
-                                            .monthlyRate(TWENTY)
+                                            .monthlyRate(MONTHLY_RATE)
                                             .customer(customerDto)
                                             .build();
 
 
         contractWithoutContractNumber = ContractDto.builder()
                                                    .contractId(CONTRACT_ID)
-                                                   .monthlyRate(TWENTY)
+                                                   .monthlyRate(MONTHLY_RATE)
                                                    .customer(customerDto)
                                                    .vehicle(vehicleDto)
                                                    .build();

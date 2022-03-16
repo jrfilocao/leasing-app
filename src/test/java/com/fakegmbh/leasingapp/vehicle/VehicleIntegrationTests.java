@@ -53,14 +53,10 @@ public class VehicleIntegrationTests {
     private int port;
 
     @Autowired
-    private VehicleTypeRepository vehicleTypeRepository;
-
-    @Autowired
     private TestRestTemplate restTemplate;
 
     @Autowired
     private Flyway flyway;
-    private VehicleTypeEntity vehicleTypeEntity;
 
     @BeforeTestClass
     public void init() {
