@@ -29,8 +29,10 @@ public class ContractDto {
     private BigDecimal monthlyRate;
 
     @Valid
+    @NotNull
     private VehicleDto vehicle;
 
     @Valid
+    @NotNull
     private CustomerDto customer;
 }
