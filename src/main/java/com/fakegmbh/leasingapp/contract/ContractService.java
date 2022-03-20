@@ -14,7 +14,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 
 @AllArgsConstructor
@@ -22,6 +25,7 @@ import java.util.Optional;
 @Service
 public class ContractService {
 
+    private static final boolean NOT_PARALLEL = false;
     private final ContractRepository contractRepository;
     private final VehicleRepository vehicleRepository;
     private final CustomerRepository customerRepository;
@@ -68,5 +72,11 @@ public class ContractService {
         Optional.ofNullable(customerEntity.getCustomerId()).orElseThrow(() -> new CustomerNotFoundException(null));
         return customerRepository.findById(customerEntity.getCustomerId())
                                  .orElseThrow(() -> new CustomerNotFoundException(customerEntity.getCustomerId()));
+    }
+
+    public List<ContractDto> getContracts() {
+        return StreamSupport.stream(contractRepository.findAll().spliterator(), NOT_PARALLEL)
+                            .map(contractMapper::mapTo)
+                            .collect(Collectors.toList());
     }
 }

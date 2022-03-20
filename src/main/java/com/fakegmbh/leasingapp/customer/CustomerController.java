@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -32,5 +33,10 @@ public class CustomerController {
     @GetMapping("/{customerId}")
     public CustomerDto getCustomer(@PathVariable final Long customerId) {
         return customerService.getCustomer(customerId);
+    }
+
+    @GetMapping
+    public List<CustomerDto> getAllCustomers() {
+        return customerService.getCustomers();
     }
 }

@@ -8,12 +8,17 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
 
 @AllArgsConstructor
 @Transactional(readOnly = true)
 @Service
 public class CustomerService {
 
+    private static final boolean NOT_PARALLEL = false;
     private final CustomerRepository customerRepository;
     private final CustomerMapper customerMapper;
 
@@ -38,5 +43,11 @@ public class CustomerService {
         final CustomerEntity customerEntity = customerMapper.mapTo(customerDto);
         final CustomerEntity persistedCustomerEntity = customerRepository.save(customerEntity);
         return customerMapper.mapTo(persistedCustomerEntity);
+    }
+
+    public List<CustomerDto> getCustomers() {
+        return StreamSupport.stream(customerRepository.findAll().spliterator(), NOT_PARALLEL)
+                            .map(customerMapper::mapTo)
+                            .collect(Collectors.toList());
     }
 }

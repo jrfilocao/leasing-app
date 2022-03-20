@@ -11,7 +11,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 
 @AllArgsConstructor
@@ -19,6 +22,7 @@ import java.util.Objects;
 @Service
 public class VehicleService {
 
+    private static final boolean NOT_PARALLEL = false;
     private final VehicleRepository vehicleRepository;
     private final VehicleTypeRepository vehicleTypeRepository;
     private final VehicleMapper vehicleMapper;
@@ -55,5 +59,11 @@ public class VehicleService {
         return vehicleTypeRepository.findByBrandAndModel(nonNullVehicleType.getBrand(), nonNullVehicleType.getModel())
                                     .orElseThrow(() -> new VehicleTypeNotFoundException(nonNullVehicleType.getBrand(),
                                                                                         nonNullVehicleType.getModel()));
+    }
+
+    public List<VehicleDto> getVehicles() {
+        return StreamSupport.stream(vehicleRepository.findAll().spliterator(), NOT_PARALLEL)
+                            .map(vehicleMapper::mapTo)
+                            .collect(Collectors.toList());
     }
 }

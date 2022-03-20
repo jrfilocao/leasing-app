@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+import java.util.List;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
@@ -31,5 +33,10 @@ public class VehicleController {
     @GetMapping("/{vehicleId}")
     public VehicleDto getVehicle(@PathVariable final Long vehicleId) {
         return vehicleService.getVehicle(vehicleId);
+    }
+
+    @GetMapping
+    public List<VehicleDto> getAllVehicles() {
+        return vehicleService.getVehicles();
     }
 }
