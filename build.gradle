@@ -25,6 +25,8 @@ repositories {
 dependencies {
     constraints {
         implementation 'org.modelmapper:modelmapper:3.0.0'
+        implementation 'io.springfox:springfox-swagger2:2.9.2'
+        implementation 'io.springfox:springfox-swagger-ui:2.9.2'
         compileOnly 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.7.3'
     }
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -32,6 +34,8 @@ dependencies {
     implementation 'org.flywaydb:flyway-core'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.modelmapper:modelmapper'
+    implementation 'io.springfox:springfox-swagger2'
+    implementation 'io.springfox:springfox-swagger-ui'
     compileOnly 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'mysql:mysql-connector-java'
