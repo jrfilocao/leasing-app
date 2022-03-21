@@ -7,3 +7,6 @@ spring:
     username: user
     password: password
     driver-class-name: com.mysql.jdbc.Driver
+
+springdoc:
+  packagesToScan: com.fakegmbh.leasingapp

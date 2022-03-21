@@ -3,7 +3,7 @@ package com.fakegmbh.leasingapp.vehicle.model;
 import com.fakegmbh.leasingapp.vehicletype.model.VehicleTypeDto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,6 +14,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
+@Schema(name = "Vehicle")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,14 +27,14 @@ public class VehicleDto {
     @JsonUnwrapped
     private VehicleTypeDto vehicleType;
 
-    @ApiModelProperty(example = "2020")
+    @Schema(example = "2020")
     @Min(1500)
     private int modelYear;
 
-    @ApiModelProperty(example = "BMW45678901234567")
+    @Schema(example = "BMW45678901234567")
     private String vin;
 
-    @ApiModelProperty(example = "10000.00")
+    @Schema(example = "10000.00")
     @NotNull
     @JsonFormat(shape=JsonFormat.Shape.NUMBER_INT)
     private BigDecimal price;
