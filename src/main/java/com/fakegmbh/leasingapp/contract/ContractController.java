@@ -1,6 +1,7 @@
 package com.fakegmbh.leasingapp.contract;
 
 import com.fakegmbh.leasingapp.contract.model.ContractDto;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +11,7 @@ import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-
+@Tag(name = "Contract")
 @RestController
 @RequestMapping(path = {"/api/contracts"}, produces = APPLICATION_JSON_VALUE)
 @AllArgsConstructor

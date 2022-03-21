@@ -1,6 +1,7 @@
 package com.fakegmbh.leasingapp.customer;
 
 import com.fakegmbh.leasingapp.customer.model.CustomerDto;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.List;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 
+@Tag(name = "Customer")
 @RestController
 @RequestMapping(path = {"/api/customers"}, produces = APPLICATION_JSON_VALUE)
 @AllArgsConstructor
