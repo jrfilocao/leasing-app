@@ -14,6 +14,8 @@ plugins {
     id 'org.flywaydb.flyway' version '8.5.2'
 }
 
+apply plugin: 'war'
+
 group = 'com.fakegmbh'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -21,6 +23,16 @@ sourceCompatibility = '11'
 repositories {
     mavenCentral()
 }
+
+task deleteStaticFolder(type: Delete) {
+    def dirName = "src/main/resources/static"
+    file( dirName ).list().each{
+        f ->
+            delete "${dirName}/${f}"
+    }
+}
+
+processResources.dependsOn('frontend:build')
 
 dependencies {
     constraints {
