@@ -1,0 +1,10 @@
+<h3>Vehicles</h3>
+
+<div *ngFor="let vehicle of vehicles">
+    <h2>
+        <a [title]="vehicle.brand + ' ' + vehicle.model + ' details'"
+           [routerLink]="['/vehicles', vehicle.vehicleId]">
+            {{vehicle.brand}} {{vehicle.model}} ({{vehicle.modelYear}}) | {{vehicle.price | currency}} | {{vehicle.vin}}
+        </a>
+    </h2>
+</div>
