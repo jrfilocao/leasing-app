@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ShippingComponent } from './shipping/shipping.component';
 import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 import { OverviewComponent } from './overview/overview.component';
+import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 
 @NgModule({
   imports: [
@@ -20,11 +21,13 @@ import { OverviewComponent } from './overview/overview.component';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: OverviewComponent },
-      { path: 'products/:productId', component: ProductDetailsComponent},
-      { path: 'cart', component: CartComponent},
-      { path: 'shipping', component: ShippingComponent},
-    ])
+      {path: '', component: OverviewComponent},
+      {path: 'vehicles/:vehicleId', component: VehicleDetailsComponent},
+      {path: 'products/:productId', component: ProductDetailsComponent},
+      {path: 'cart', component: CartComponent},
+      {path: 'shipping', component: ShippingComponent},
+    ]),
+    FormsModule
   ],
   declarations: [
     AppComponent,
@@ -35,7 +38,8 @@ import { OverviewComponent } from './overview/overview.component';
     CartComponent,
     ShippingComponent,
     VehicleListComponent,
-    OverviewComponent
+    OverviewComponent,
+    VehicleDetailsComponent
   ],
   bootstrap: [
     AppComponent

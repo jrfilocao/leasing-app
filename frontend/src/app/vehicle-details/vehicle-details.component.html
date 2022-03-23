@@ -1,0 +1,26 @@
+<h2>Vehicle Details</h2>
+
+<div *ngIf="vehicle">
+    <div>
+        <label>id: </label>
+        <div class="id">{{vehicle.vehicleId}}</div>
+    </div>
+    <div>
+        <label>Brand: </label>
+        <input [(ngModel)]="vehicle.brand" placeholder="brand"/>
+    </div>
+    <div>
+        <label>Model Year: </label>
+        <input [(ngModel)]="vehicle.modelYear" placeholder="model year"/>
+    </div>
+    <div>
+        <label>VIN: </label>
+        <input [(ngModel)]="vehicle.vin" placeholder="vin"/>
+    </div>
+    <div>
+        <label>price: </label>
+        <input [(ngModel)]="vehicle.price" placeholder="price"/>
+    </div>
+    <button class="button" type="button" (click)="goBack()">Back</button>
+    <button class="button" type="submit" (click)="save()">Save</button>
+</div>

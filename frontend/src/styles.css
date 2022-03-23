@@ -40,7 +40,6 @@ p {
 }
 
 /* Hyperlink */
-
 a {
   cursor: pointer;
   color: #0b5eb1;
@@ -74,12 +73,13 @@ label {
   display: inline-flex;
   align-items: center;
   padding: 8px 16px;
-  border-radius: 2px;
+  border-radius: 10px;
   font-size: 14px;
   cursor: pointer;
   background-color: #1976d2;
   color: white;
   border: none;
+  margin-right: 5px;
 }
 
 .button:hover, button:hover {
@@ -137,6 +137,9 @@ app-top-bar h1 {
   background-color: #EEEEEE;
 }
 
+div.id {
+  margin-bottom: 10px;
+}
 
 /*
 Copyright Google LLC. All Rights Reserved.
