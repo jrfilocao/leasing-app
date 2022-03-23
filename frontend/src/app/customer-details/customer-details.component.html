@@ -1,0 +1,22 @@
+<h2>Customer Details</h2>
+
+<div *ngIf="customer">
+    <div>
+        <label>id: </label>
+        <div class="id">{{customer.customerId}}</div>
+    </div>
+    <div>
+        <label>First Name: </label>
+        <input [(ngModel)]="customer.firstName" placeholder="first name"/>
+    </div>
+    <div>
+        <label>Second Name: </label>
+        <input [(ngModel)]="customer.lastName" placeholder="second name"/>
+    </div>
+    <div>
+        <label>Birthdate: </label>
+        <input [(ngModel)]="customer.birthdate" placeholder="birthdate"/>
+    </div>
+    <button class="button" type="button" (click)="goBack()">Back</button>
+    <button class="button" type="submit" (click)="save()">Save</button>
+</div>

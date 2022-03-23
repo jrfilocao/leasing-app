@@ -15,6 +15,7 @@ import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 import { OverviewComponent } from './overview/overview.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 import { CustomerListComponent } from './customer-list/customer-list.component';
+import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
     RouterModule.forRoot([
       {path: '', component: OverviewComponent},
       {path: 'vehicles/:vehicleId', component: VehicleDetailsComponent},
+      {path: 'customers/:customerId', component: CustomerDetailsComponent},
       {path: 'products/:productId', component: ProductDetailsComponent},
       {path: 'cart', component: CartComponent},
       {path: 'shipping', component: ShippingComponent},
@@ -41,7 +43,8 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
     VehicleListComponent,
     OverviewComponent,
     VehicleDetailsComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    CustomerDetailsComponent
   ],
   bootstrap: [
     AppComponent
