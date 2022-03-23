@@ -14,6 +14,7 @@ import { ShippingComponent } from './shipping/shipping.component';
 import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 import { OverviewComponent } from './overview/overview.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
+import { CustomerListComponent } from './customer-list/customer-list.component';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.compo
     ShippingComponent,
     VehicleListComponent,
     OverviewComponent,
-    VehicleDetailsComponent
+    VehicleDetailsComponent,
+    CustomerListComponent
   ],
   bootstrap: [
     AppComponent
