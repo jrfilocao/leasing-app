@@ -104,6 +104,20 @@ label {
   padding-right: 4px;
 }
 
+.details-button {
+  #background-color: #1976d2;
+  #color: white;
+  background-color: white;
+  color: #1976d2;
+}
+
+.details-button i.material-icons {
+  #color: white;
+  color: #1976d2;
+  padding-right: 0px;
+  font-size: 18px;
+}
+
 /* Top Bar */
 
 app-top-bar {

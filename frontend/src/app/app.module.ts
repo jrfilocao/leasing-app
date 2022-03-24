@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TableModule } from 'ngx-easy-table';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -22,6 +23,7 @@ import { CustomerDetailsComponent } from './customer-details/customer-details.co
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    TableModule,
     RouterModule.forRoot([
       {path: '', component: OverviewComponent},
       {path: 'vehicles/:vehicleId', component: VehicleDetailsComponent},

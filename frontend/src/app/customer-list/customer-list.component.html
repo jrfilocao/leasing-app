@@ -1,10 +1,12 @@
 <h3>Customers</h3>
 
-<div *ngFor="let customer of customers">
-    <h2>
-        <a [title]="customer.firstName + ' ' + customer.lastName + ' details'"
-           [routerLink]="['/customers', customer.customerId]">
-            {{customer.firstName}} {{customer.lastName}} ({{customer.birthdate}})
-        </a>
-    </h2>
+<div *ngIf="customers.length" class="card">
+    <div class="card-body">
+        <ngx-table [configuration]="configuration" [data]="customers" [columns]="columns"> </ngx-table>
+    </div>
 </div>
+
+<ng-template #actionTpl let-customer>
+    <div [routerLink]="['/customers', customer.customerId]" class="button details-button">
+        <i class="material-icons">edit</i></div>
+</ng-template>
