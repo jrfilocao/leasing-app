@@ -1,0 +1,20 @@
+<h3>Contracts</h3>
+
+<div *ngIf="contracts.length" class="card">
+    <div class="card-body">
+        <ngx-table [configuration]="configuration" [data]="contracts" [columns]="columns"> </ngx-table>
+    </div>
+</div>
+
+<ng-template #actionTpl let-contract>
+    <div [routerLink]="['/contracts', contract.contractId]" class="button details-button">
+        <i class="material-icons">edit</i></div>
+</ng-template>
+
+<ng-template #customerTpl let-contract>
+    <div>{{ contract.customer.firstName }} {{contract.customer.lastName}}</div>
+</ng-template>
+
+<ng-template #vehicleTpl let-contract>
+    <div>{{ contract.vehicle.brand }} {{contract.vehicle.model}} ({{contract.vehicle.modelYear}})</div>
+</ng-template>
