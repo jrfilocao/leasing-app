@@ -1,0 +1,41 @@
+<h2>Contract Details</h2>
+
+<div *ngIf="contract">
+    <div>
+        <label>id: </label>
+        <div class="id">{{contract.contractId}}</div>
+    </div>
+    <div>
+        <label>Contract No: </label>
+        <input [(ngModel)]="contract.contractNumber" placeholder=""/>
+    </div>
+    <div>
+        <label>Monthly Rate: </label>
+        <input [(ngModel)]="contract.monthlyRate" placeholder=""/>
+    </div>
+    <div>
+        <label>Customer: </label>
+        <div class="row">
+            <div class="detail-entity column"> {{contract.customer.firstName}} {{contract.customer.lastName}}</div>
+            <div (click)="goBack()" class="detail-entity column button details-button no-padding"><i class="material-icons">change_circle</i></div>
+            <div [routerLink]="['/customers', contract.customer.customerId]" class="detail-entity column button details-button no-padding">
+                <i class="material-icons">edit</i>
+            </div>
+        </div>
+    </div>
+    <div>
+        <label>Vehicle: </label>
+        <div class="row">
+            <div class="vehicle-entity column"> {{contract.vehicle.brand}} {{contract.vehicle.model}} ({{contract.vehicle.modelYear}})</div>
+        </div>
+        <div class="row">
+            <div class="detail-entity column"> VIN: {{contract.vehicle.vin}}</div>
+            <div (click)="goBack()" class="detail-entity column button details-button no-padding"><i class="material-icons">change_circle</i></div>
+            <div [routerLink]="['/vehicles', contract.vehicle.vehicleId]" class="detail-entity column button details-button no-padding">
+                <i class="material-icons">edit</i>
+            </div>
+        </div>
+    </div>
+    <button class="button" type="button" (click)="goBack()">Back</button>
+    <button class="button" type="submit" (click)="save()">Save</button>
+</div>

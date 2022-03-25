@@ -18,6 +18,7 @@ import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.compo
 import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { ContractListComponent } from './contract-list/contract-list.component';
+import { ContractDetailsComponent } from './contract-details/contract-details.component';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { ContractListComponent } from './contract-list/contract-list.component';
       {path: '', component: OverviewComponent},
       {path: 'vehicles/:vehicleId', component: VehicleDetailsComponent},
       {path: 'customers/:customerId', component: CustomerDetailsComponent},
+      {path: 'contracts/:contractId', component: ContractDetailsComponent},
       {path: 'products/:productId', component: ProductDetailsComponent},
       {path: 'cart', component: CartComponent},
       {path: 'shipping', component: ShippingComponent},
@@ -48,7 +50,8 @@ import { ContractListComponent } from './contract-list/contract-list.component';
     VehicleDetailsComponent,
     CustomerListComponent,
     CustomerDetailsComponent,
-    ContractListComponent
+    ContractListComponent,
+    ContractDetailsComponent
   ],
   bootstrap: [
     AppComponent

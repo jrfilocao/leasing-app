@@ -104,6 +104,7 @@ label {
   padding-right: 4px;
 }
 
+/* Details */
 .details-button {
   #background-color: #1976d2;
   #color: white;
@@ -118,6 +119,32 @@ label {
   font-size: 18px;
 }
 
+.detail-entity .vehicle-entity{
+  font-size: 14px;
+}
+
+.detail-entity:last-child {
+  margin-bottom: 15px;
+}
+
+.column {
+  float: left;
+  margin-right: 10px;
+}
+
+.column:first-child {
+  width: 200px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
 /* Top Bar */
 
 app-top-bar {
