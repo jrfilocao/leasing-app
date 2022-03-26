@@ -6,12 +6,7 @@ import { TableModule } from 'ngx-easy-table';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
-import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ShippingComponent } from './shipping/shipping.component';
 import { VehicleListComponent } from './vehicle-list/vehicle-list.component';
 import { OverviewComponent } from './overview/overview.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
@@ -31,20 +26,12 @@ import { ContractDetailsComponent } from './contract-details/contract-details.co
       {path: 'vehicles/:vehicleId', component: VehicleDetailsComponent},
       {path: 'customers/:customerId', component: CustomerDetailsComponent},
       {path: 'contracts/:contractId', component: ContractDetailsComponent},
-      {path: 'products/:productId', component: ProductDetailsComponent},
-      {path: 'cart', component: CartComponent},
-      {path: 'shipping', component: ShippingComponent},
     ]),
     FormsModule
   ],
   declarations: [
     AppComponent,
     TopBarComponent,
-    ProductListComponent,
-    ProductAlertsComponent,
-    ProductDetailsComponent,
-    CartComponent,
-    ShippingComponent,
     VehicleListComponent,
     OverviewComponent,
     VehicleDetailsComponent,
