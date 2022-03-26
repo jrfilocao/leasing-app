@@ -15,7 +15,11 @@
     </div>
     <div>
         <label>Birthdate: </label>
-        <input [(ngModel)]="customer.birthdate" placeholder="birthdate"/>
+        <mat-form-field>
+            <input [(ngModel)]="customer.birthdate" matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
     </div>
     <button class="button" type="button" (click)="goBack()">Back</button>
     <button class="button" type="submit" (click)="save()">Save</button>

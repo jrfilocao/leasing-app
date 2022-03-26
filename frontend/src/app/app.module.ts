@@ -14,6 +14,11 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { ContractListComponent } from './contract-list/contract-list.component';
 import { ContractDetailsComponent } from './contract-details/contract-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatNativeDateModule } from "@angular/material/core";
+import { MatInputModule } from "@angular/material/input";
 
 @NgModule({
   imports: [
@@ -27,7 +32,13 @@ import { ContractDetailsComponent } from './contract-details/contract-details.co
       {path: 'customers/:customerId', component: CustomerDetailsComponent},
       {path: 'contracts/:contractId', component: ContractDetailsComponent},
     ]),
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,
@@ -38,7 +49,10 @@ import { ContractDetailsComponent } from './contract-details/contract-details.co
     CustomerListComponent,
     CustomerDetailsComponent,
     ContractListComponent,
-    ContractDetailsComponent
+    ContractDetailsComponent,
+  ],
+  providers: [
+    MatDatepickerModule,
   ],
   bootstrap: [
     AppComponent

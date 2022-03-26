@@ -1,5 +1,7 @@
 /* Global Styles */
 
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
 * {
   font-family: 'Roboto', Arial, sans-serif;
   color: #616161;
@@ -33,6 +35,16 @@ h2 {
 
 h1, h2 {
   font-weight: lighter;
+}
+
+h3 {
+  font-weight: 800!important;
+  margin-top: 10px!important;
+  margin-bottom: 5px!important;
+}
+
+th {
+  font-weight: 500!important;
 }
 
 p {
@@ -187,3 +199,5 @@ Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at https://angular.io/license
 */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
