@@ -17,7 +17,6 @@
         <label>Customer: </label>
         <div class="row">
             <div class="detail-entity column"> {{contract.customer.firstName}} {{contract.customer.lastName}}</div>
-            <div (click)="goBack()" class="detail-entity column button details-button no-padding"><i class="material-icons">change_circle</i></div>
             <div [routerLink]="['/customers', contract.customer.customerId]" class="detail-entity column button details-button no-padding">
                 <i class="material-icons">edit</i>
             </div>
@@ -30,7 +29,6 @@
         </div>
         <div class="row">
             <div class="detail-entity column"> VIN: {{contract.vehicle.vin}}</div>
-            <div (click)="goBack()" class="detail-entity column button details-button no-padding"><i class="material-icons">change_circle</i></div>
             <div [routerLink]="['/vehicles', contract.vehicle.vehicleId]" class="detail-entity column button details-button no-padding">
                 <i class="material-icons">edit</i>
             </div>
