@@ -7,12 +7,17 @@
     </div>
     <div>
         <label>Brand: </label>
-        <input [(ngModel)]="vehicle.brand" placeholder="brand"/>
+        <select name="model" class="vehicle-select" (change)="onChange($any($event.target).value)" [(ngModel)]="vehicle.brand">
+            <option *ngFor="let brand of brands" [value]="brand.name">{{brand.name}}</option>
+        </select>
     </div>
     <div>
         <label>Model: </label>
-        <input [(ngModel)]="vehicle.model" placeholder="model"/>
+        <select id="sel1" class="vehicle-select" name="brand" [(ngModel)]="vehicle.model">
+            <option *ngFor="let model of models" [value]="model">{{model}}</option>
+        </select>
     </div>
+
     <div>
         <label>Model Year: </label>
         <input [(ngModel)]="vehicle.modelYear" placeholder="model year"/>

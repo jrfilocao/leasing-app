@@ -31,6 +31,7 @@ h1 {
 
 h2 {
   font-size: 20px;
+  margin-top: 10px!important;
 }
 
 h1, h2 {
@@ -156,6 +157,14 @@ label {
 
 .no-padding {
   padding: 0 !important;
+}
+
+.vehicle-select {
+  font-size: 14px;
+  border-radius: 2px;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #BDBDBD;
 }
 /* Top Bar */
 
