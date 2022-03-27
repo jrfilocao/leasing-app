@@ -1,22 +1,13 @@
 package com.fakegmbh.leasingapp.vehicle;
 
-import com.fakegmbh.leasingapp.LeasingAppApplication;
+import com.fakegmbh.leasingapp.BaseIntegrationTest;
 import com.fakegmbh.leasingapp.vehicle.model.VehicleDto;
-import com.fakegmbh.leasingapp.vehicletype.VehicleTypeRepository;
 import com.fakegmbh.leasingapp.vehicletype.model.VehicleTypeDto;
-import com.fakegmbh.leasingapp.vehicletype.model.VehicleTypeEntity;
-import org.flywaydb.core.Flyway;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.event.annotation.BeforeTestClass;
 
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -27,13 +18,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Integration tests starting a Spring application context and the server.
  * Kind of sanity check or smoke tests confirming that the most crucial functions of the domain work.
  *
- * <p>We are not using testcontainers here. So, the mysql container should be running.
- *
  * <p>Exceptionally, we have multiple asserts per test. Each test is handling the CRUD operations for one domain.
  */
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@SpringBootTest(classes = LeasingAppApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class VehicleIntegrationTests {
+public class VehicleIntegrationTests extends BaseIntegrationTest {
 
     private static final String VEHICLES_ENDPOINT = "/api/vehicles";
 
@@ -51,18 +38,6 @@ public class VehicleIntegrationTests {
 
     @LocalServerPort
     private int port;
-
-    @Autowired
-    private TestRestTemplate restTemplate;
-
-    @Autowired
-    private Flyway flyway;
-
-    @BeforeTestClass
-    public void init() {
-        flyway.clean();
-        flyway.migrate();
-    }
 
     private VehicleDto vehicle;
     private VehicleDto vehicleToBeUpdated;
@@ -110,10 +85,5 @@ public class VehicleIntegrationTests {
         final ResponseEntity<VehicleDto> updatedEntity = this.restTemplate.getForEntity(HOST + port + VEHICLES_ENDPOINT + SEPARATOR + vehicleId,
                                                                                         VehicleDto.class);
         assertThat(updatedEntity.getBody()).isEqualTo(vehicleToBeUpdated);
-    }
-
-    @AfterAll
-    public void tearDown() {
-        flyway.clean();
     }
 }

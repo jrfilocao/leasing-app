@@ -1,19 +1,12 @@
 package com.fakegmbh.leasingapp.customer;
 
-import com.fakegmbh.leasingapp.LeasingAppApplication;
+import com.fakegmbh.leasingapp.BaseIntegrationTest;
 import com.fakegmbh.leasingapp.customer.model.CustomerDto;
-import org.flywaydb.core.Flyway;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.event.annotation.BeforeTestClass;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -25,13 +18,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Integration tests starting a Spring application context and the server.
  * Kind of sanity check or smoke tests confirming that the most crucial functions of the domain work.
  *
- * <p>We are not using testcontainers here. So, the mysql container should be running.
- *
  * <p>Exceptionally, we have multiple asserts per test. Each test is handling the CRUD operations for one domain.
  */
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@SpringBootTest(classes = LeasingAppApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class CustomerIntegrationTests {
+public class CustomerIntegrationTests extends BaseIntegrationTest {
 
     private static final String CUSTOMERS_ENDPOINT = "/api/customers";
     private static final long CUSTOMER_ID = 1L;
@@ -45,18 +34,6 @@ public class CustomerIntegrationTests {
 
     @LocalServerPort
     private int port;
-
-    @Autowired
-    private TestRestTemplate restTemplate;
-
-    @Autowired
-    private Flyway flyway;
-
-    @BeforeTestClass
-    public void init() {
-        flyway.clean();
-        flyway.migrate();
-    }
 
     private CustomerDto customer;
     private CustomerDto customerToBeUpdated;
@@ -97,10 +74,5 @@ public class CustomerIntegrationTests {
         final ResponseEntity<CustomerDto> updatedEntity = this.restTemplate.getForEntity(HOST + port + CUSTOMERS_ENDPOINT + SEPARATOR + customerId,
                                                                                          CustomerDto.class);
         assertThat(updatedEntity.getBody()).isEqualTo(customerToBeUpdated);
-    }
-
-    @AfterAll
-    public void tearDown() {
-        flyway.clean();
     }
 }

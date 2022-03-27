@@ -1,22 +1,15 @@
 package com.fakegmbh.leasingapp.contract;
 
-import com.fakegmbh.leasingapp.LeasingAppApplication;
+import com.fakegmbh.leasingapp.BaseIntegrationTest;
 import com.fakegmbh.leasingapp.contract.model.ContractDto;
 import com.fakegmbh.leasingapp.customer.model.CustomerDto;
 import com.fakegmbh.leasingapp.vehicle.model.VehicleDto;
 import com.fakegmbh.leasingapp.vehicletype.model.VehicleTypeDto;
-import org.flywaydb.core.Flyway;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.event.annotation.BeforeTestClass;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -29,13 +22,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Integration tests starting a Spring application context and the server.
  * Kind of sanity check or smoke tests confirming that the most crucial functions of the domain work.
  *
- * <p>We are not using testcontainers here. So, the mysql container should be running.
- *
  * <p>Exceptionally, we have multiple asserts per test. Each test is handling the CRUD operations for one domain.
  */
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-@SpringBootTest(classes = LeasingAppApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class ContractIntegrationTests {
+public class ContractIntegrationTests extends BaseIntegrationTest {
 
     private static final String CONTRACT_ENDPOINT = "/api/contracts";
     private static final String CUSTOMERS_ENDPOINT = "/api/customers";
@@ -64,19 +53,8 @@ public class ContractIntegrationTests {
     @LocalServerPort
     private int port;
 
-    @Autowired
-    private TestRestTemplate restTemplate;
-
-    @Autowired
-    private Flyway flyway;
     private CustomerDto customer;
     private VehicleDto vehicle;
-
-    @BeforeTestClass
-    public void init() {
-        flyway.clean();
-        flyway.migrate();
-    }
 
     private ContractDto contract;
     private ContractDto contractToBeUpdated;
@@ -155,10 +133,5 @@ public class ContractIntegrationTests {
                                                                                           customer,
                                                                                           CustomerDto.class);
         assertThat(createdCustomer.getStatusCode()).isEqualTo(HttpStatus.CREATED);
-    }
-
-    @AfterAll
-    public void tearDown() {
-        flyway.clean();
     }
 }
