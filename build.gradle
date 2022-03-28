@@ -14,7 +14,10 @@ plugins {
     id 'org.flywaydb.flyway' version '8.5.2'
 }
 
-apply plugin: 'war'
+jar {
+    baseName = 'leasingapp'
+    version = '0.0.1'
+}
 
 group = 'com.fakegmbh'
 version = '0.0.1-SNAPSHOT'
